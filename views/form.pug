@@ -36,11 +36,17 @@ block content
         )
 
         label(for="changeLog") Changelog:
-            input(
-            type="text"
+            textarea(
             id="changeLog"
             name="changeLog"
-            value=data.changeLog
             )
+        label(for="download") Download link:
+            input(
+            type="text"
+            id="download"
+            name="download"
+            value=data.download
+            )
+
 
         input(type="submit" value="Submit")

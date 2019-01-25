@@ -8,6 +8,18 @@ router.get('/', (req, res) => {
     res.render('form', { title: 'COSP Updates'});
 });
 
+router.get('/checkUpdate', async (req, res) => {
+    const reqDevice = req.query.device;
+    const deviceBuild = Number(req.query.date);
+    await Device.findOne({ device: reqDevice }, async (err, device) => {
+        if (Number(device.get('buildDate')) > deviceBuild) {
+            res.send({ update: true, download: await device.get('download'), changeLog: await device.get('changeLog')});
+        } else {
+            res.send({ update: false, download: '' , changeLog: ''});
+        }
+    });
+});
+
 // Submit route
 router.post('/',
     [
@@ -22,24 +34,32 @@ router.post('/',
             .withMessage('Please enter the build date.'),
         body('changeLog')
             .isLength({ min: 1 })
-            .withMessage('Please enter the changelog.')
+            .withMessage('Please enter the changelog.'),
+        body('download')
+            .isURL({ require_valid_protocol: true })
+            .withMessage('Please enter a valid URL')
     ],
     async (req, res) => {
         const errors = validationResult(req);
         if (errors.isEmpty()) {
             try {
                 await Device.findOne({ device: req.body.device }, async (err, device) => {
-                    if (err) console.log(err);
-                    await device.set(req.body);
-                    await device.save((err) => {
-                        if (err) console.log(err);
-                        res.send('Updated successfully.')
-                    });
+                    if (err || device === null) {
+                        const device = new Device(req.body);
+                        await device.save(err => {
+                            if (err) console.log(err);
+                            res.send('Created device successfully.');
+                        });
+
+                    } else {
+                        await device.set(req.body);
+                        await device.save((err) => {
+                            if (err) console.log(err);
+                            res.send('Updated successfully.')
+                        });
+                    }
                 });
-            } catch (e) {
-                const device = new Device(req.body);
-                await device.save();
-            }
+            } catch (e) {}
         } else {
             res.render('form', {
                 title: 'COSP Updates',
@@ -48,7 +68,6 @@ router.post('/',
             });
         }
         console.log(req.body);
-        res.render('form', { title: 'COSP Updates' });
     });
 
 module.exports = router;

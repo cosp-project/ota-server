@@ -18,6 +18,10 @@ const deviceSchema = new mongoose.Schema({
 
     changeLog: {
         type: String
+    },
+
+    download: {
+        type: String
     }
 });
 
