@@ -1,0 +1,30 @@
+extends layout
+
+
+block content
+
+    -data = data || {}
+
+    if errors
+        ul
+            for error in errors
+                li= error.msg
+
+    form(action="." method="POST")
+        label(for="device") Device codename:
+        input(
+        type="text"
+        id="device"
+        name="device"
+        value=data.device
+        )
+
+        label(for="maintainer") Maintainer
+        input(
+        type="text"
+        id="maintainer"
+        name="maintainer"
+        value=data.maintainer
+        )
+
+        input(type="submit" value="Submit")
