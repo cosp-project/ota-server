@@ -1,0 +1,49 @@
+body {
+    padding: 40px 10px;
+    background-color: #eee;
+}
+.listing-reg h1 {
+    text-align: center;
+    margin: 0 0 2rem;
+}
+
+/* css for registration form and errors*/
+.form-updates {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-updates {
+    display: flex;
+    flex-wrap: wrap;
+}
+.form-updates input {
+    width: 100%;
+    margin: 0px 0 10px;
+}
+
+.form-updates textarea {
+    width: 10cm;
+    height: 5cm;
+    margin: 0px 0 10px;
+}
+
+.form-updates .btn {
+    flex: 1 0 100%;
+}
+.my-errors {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    color: #333;
+    font-size: 1.2rem;
+    display: table;
+}
+.my-errors li {
+    margin: 0 0 1rem;
+}
+.my-errors li:before {
+    content: "! Error : ";
+    color: #f00;
+    font-weight: bold;
+}

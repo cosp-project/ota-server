@@ -6,47 +6,56 @@ block content
     -data = data || {}
 
     if errors
-        ul
+        ul.my-errors
             for error in errors
                 li= error.msg
 
-    form(action="." method="POST")
+    form(action="." method="POST" class="form-updates")
         label(for="device") Device codename:
         input(
-        type="text"
-        id="device"
-        name="device"
-        value=data.device
+            type="text"
+            id="device"
+            name="device"
+            class="form-control"
+            value=data.device
         )
 
         label(for="maintainer") Maintainer:
         input(
-        type="text"
-        id="maintainer"
-        name="maintainer"
-        value=data.maintainer
+            type="text"
+            id="maintainer"
+            name="maintainer"
+            class="form-control"
+            value=data.maintainer
         )
 
         label(for="buildDate") Build date:
         input(
-        type="text"
-        id="buildDate"
-        name="buildDate"
-        value=data.buildDate
+            type="text"
+            id="buildDate"
+            name="buildDate"
+            class="form-control"
+            value=data.buildDate
         )
 
         label(for="changeLog") Changelog:
             textarea(
             id="changeLog"
             name="changeLog"
+            class="form-control"
             )
         label(for="download") Download link:
             input(
             type="text"
             id="download"
             name="download"
+            class="form-control"
             value=data.download
             )
 
 
-        input(type="submit" value="Submit")
+        input(
+            type="submit"
+            value="Submit"
+            class="btn btn-lg btn-primary btn-block"
+        )
