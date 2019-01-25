@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98bc4c2a-6b5a-4089-a526-c65143ca0a84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/users.htpasswd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Device.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Device.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/form.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/form.pug" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,8 +58,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="60" column="19" lean-forward="true" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+            <state relative-caret-position="252">
+              <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/users.htpasswd">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="50" selection-start-column="50" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -115,6 +125,7 @@
         <option value="$PROJECT_DIR$/start.js" />
         <option value="$PROJECT_DIR$/models/Device.js" />
         <option value="$PROJECT_DIR$/views/form.pug" />
+        <option value="$PROJECT_DIR$/users.htpasswd" />
         <option value="$PROJECT_DIR$/routes/index.js" />
       </list>
     </option>
@@ -185,7 +196,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1548442730193</updated>
-      <workItem from="1548442731726" duration="13566000" />
+      <workItem from="1548442731726" duration="14584000" />
     </task>
     <task id="LOCAL-00001" summary="Add more entry fields">
       <created>1548451997083</created>
@@ -194,11 +205,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548451997083</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Multiple changes:&#10;* Add The remaining input fields&#10;* Change the changeLog field to a textarea&#10;* Fix a bug in the response&#10;* Add a REST API for checking updates (takes parameters 'device' and 'date')">
+      <created>1548456703303</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1548456703303</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13566000" />
+    <option name="totallyTimeSpent" value="14584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="1920" height="982" extended-state="6" />
@@ -233,7 +251,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Add more entry fields" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add more entry fields" />
+    <MESSAGE value="Multiple changes:&#10;* Add The remaining input fields&#10;* Change the changeLog field to a textarea&#10;* Fix a bug in the response&#10;* Add a REST API for checking updates (takes parameters 'device' and 'date')" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multiple changes:&#10;* Add The remaining input fields&#10;* Change the changeLog field to a textarea&#10;* Fix a bug in the response&#10;* Add a REST API for checking updates (takes parameters 'device' and 'date')" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -314,10 +333,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/users.htpasswd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="50" selection-start-column="50" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="60" column="19" lean-forward="true" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+        <state relative-caret-position="252">
+          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
         </state>
       </provider>
     </entry>

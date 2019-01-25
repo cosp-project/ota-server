@@ -1,10 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
+const auth = require('http-auth');
 const { body, validationResult } = require('express-validator/check');
 const router = express.Router();
 const Device = mongoose.model('Device');
+const basic = auth.basic({
+    file: path.join(__dirname, '../users.htpasswd'),
+});
 
-router.get('/', (req, res) => {
+router.get('/', auth.connect(basic), (req, res) => {
     res.render('form', { title: 'COSP Updates'});
 });
 
