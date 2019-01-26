@@ -10,6 +10,15 @@ block content
             for error in errors
                 li= error.msg
 
+    div(id="particles-js" class="particles-js")
+            canvas(
+            class="particles-js-canvas-el"
+            width="1615"
+            height="881"
+            style="width: 100%; height: 100%"
+            )
+
+
     form(action="." method="POST" class="form-updates")
         label(for="device") Device codename:
         input(
