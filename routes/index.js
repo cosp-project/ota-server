@@ -16,13 +16,25 @@ router.get('/', auth.connect(basic), (req, res) => {
 router.get('/checkUpdate', async (req, res) => {
     const reqDevice = req.query.device;
     const deviceBuild = Number(req.query.date);
-    await Device.findOne({ device: reqDevice }, async (err, device) => {
-        if (Number(device.get('buildDate')) > deviceBuild) {
-            res.send({ update: true, download: await device.get('download'), changeLog: await device.get('changeLog')});
-        } else {
-            res.send({ update: false, download: '' , changeLog: ''});
-        }
-    });
+    try {
+        await Device.findOne({device: reqDevice}, async (err, device) => {
+            if (device === null) {
+                res.send('error');
+            }
+            else if ((Number(await device.get('buildDate')) > deviceBuild)) {
+                res.send({
+                    update: true,
+                    download: await device.get('download'),
+                    changeLog: await device.get('changeLog')
+                });
+            } else {
+                res.send({update: false, download: '', changeLog: await device.get('changeLog')});
+            }
+        });
+    } catch (e) {
+        console.log(e);
+        res.send("Error!");
+    }
 });
 
 // Submit route
@@ -36,6 +48,7 @@ router.post('/',
             .withMessage('Please enter the maintainer\'s name'),
         body('buildDate')
             .isLength({ min: 1 })
+            .isNumeric()
             .withMessage('Please enter the build date.'),
         body('changeLog')
             .isLength({ min: 1 })
