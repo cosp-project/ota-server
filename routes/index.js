@@ -5,6 +5,14 @@ const auth = require('http-auth');
 const { body, validationResult } = require('express-validator/check');
 const router = express.Router();
 const Device = mongoose.model('Device');
+const Pusher = require('pusher');
+const pusher = new Pusher({
+    appId: process.env.APP_ID,
+    key: process.env.KEY,
+    secret: process.env.SECRET,
+    cluster: 'eu',
+    encrypted: true
+});
 const basic = auth.basic({
     file: path.join(__dirname, '../users.htpasswd'),
 });
@@ -73,7 +81,10 @@ router.post('/',
                         await device.set(req.body);
                         await device.save((err) => {
                             if (err) console.log(err);
-                            res.send('Updated successfully.')
+                            res.send('Updated successfully.');
+                            pusher.trigger('cosp-updates', 'updates-pushed', {
+                                "device": req.body.device
+                            })
                         });
                     }
                 });
