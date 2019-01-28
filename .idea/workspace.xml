@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="98bc4c2a-6b5a-4089-a526-c65143ca0a84" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="84" column="67" selection-start-line="84" selection-start-column="67" selection-end-line="84" selection-end-column="67" />
+            <state relative-caret-position="1197">
+              <caret line="74" column="50" lean-forward="true" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
               <folding>
                 <element signature="e#1016#1656#0" />
               </folding>
@@ -84,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="63">
-              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -232,7 +229,7 @@
       <option name="presentableId" value="Default" />
       <updated>1548442730193</updated>
       <workItem from="1548442731726" duration="21463000" />
-      <workItem from="1548523119631" duration="6183000" />
+      <workItem from="1548523119631" duration="6686000" />
     </task>
     <task id="LOCAL-00001" summary="Add more entry fields">
       <created>1548451997083</created>
@@ -283,11 +280,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548527315154</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Push notifications every time an update is pushed">
+      <created>1548559997894</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1548559997894</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27646000" />
+    <option name="totallyTimeSpent" value="28149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="32" width="1920" height="981" extended-state="6" />
@@ -328,7 +332,8 @@
     <MESSAGE value="Add particles for keks" />
     <MESSAGE value="* Return changelog even on latest build&#10;* Improve exception handling" />
     <MESSAGE value="* Return changelog even on latest build&#10;* Improve exception handling&#10;&#10;Signed-off-by: ATechnoHazard &lt;amolele@gmail.com&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Return changelog even on latest build&#10;* Improve exception handling&#10;&#10;Signed-off-by: ATechnoHazard &lt;amolele@gmail.com&gt;" />
+    <MESSAGE value="Push notifications every time an update is pushed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Push notifications every time an update is pushed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -462,13 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/start.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -478,11 +476,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="84" column="67" selection-start-line="84" selection-start-column="67" selection-end-line="84" selection-end-column="67" />
+        <state relative-caret-position="1197">
+          <caret line="74" column="50" lean-forward="true" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
           <folding>
             <element signature="e#1016#1656#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="27" />
         </state>
       </provider>
     </entry>
