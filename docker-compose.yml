@@ -1,21 +1,21 @@
 version: '2.1'
 services:
 
-  ota-server:
+  cosp-ota:
     image: cosp-project/server:latest
     restart: always
     depends_on:
-      - ota-mongodb
+      - cosp-mongodb
     environment:
       - TZ=${TZ}
     ports:
       - 6080:80/tcp
     networks:
-      ota-network:
+      cosp-network:
         aliases:
           - server
 
-  ota-mongodb:
+  cosp-mongodb:
     image: mongo:4.0
     restart: always
     environment:
@@ -27,12 +27,12 @@ services:
     ports:
       - 3306/tcp
     networks:
-      ota-network:
+      cosp-network:
         aliases:
           - mongodb
 
 networks:
-  ota-network:
+  cosp-network:
 
 volumes:
   mysql-vol-1:
