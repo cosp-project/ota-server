@@ -1,0 +1,38 @@
+version: '2.1'
+services:
+
+  ota-server:
+    image: cosp-project/server:latest
+    restart: always
+    depends_on:
+      - ota-mongodb
+    environment:
+      - TZ=${TZ}
+    ports:
+      - 6080:80/tcp
+    networks:
+      ota-network:
+        aliases:
+          - server
+
+  ota-mongodb:
+    image: mongo:4.0
+    restart: always
+    environment:
+      - TZ=${TZ}
+      - MONGO_INITDB_ROOT_USERNAME=${DBUSER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DBPASS}
+    volumes:
+      - mongo-vol-1:/data/db
+    ports:
+      - 3306/tcp
+    networks:
+      ota-network:
+        aliases:
+          - mongodb
+
+networks:
+  ota-network:
+
+volumes:
+  mysql-vol-1:
