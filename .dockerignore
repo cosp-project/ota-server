@@ -1,0 +1,16 @@
+# Why even include them
+.dockerignore
+.env
+.gitignore
+
+# Docker related files
+docker-compose.yml
+Dockerfile
+Makefile
+
+# Other files
+mongo-init.sh
+server.conf
+
+# Repo readme
+README.md
