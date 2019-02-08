@@ -2,14 +2,15 @@ version: '2.1'
 services:
 
   cosp-ota:
-    image: cosp-project/server:latest
+    image: cosp-project/ota-server:latest
     restart: always
     depends_on:
       - cosp-mongodb
     environment:
       - TZ=${TZ}
+      - DATABASE=${DBURL}
     ports:
-      - 6080:80/tcp
+      - 6080:3000/tcp
     networks:
       cosp-network:
         aliases:
