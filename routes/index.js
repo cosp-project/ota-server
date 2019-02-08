@@ -45,6 +45,22 @@ router.get('/checkUpdate', async (req, res) => {
     }
 });
 
+router.get('/latestDownload', async (req, res) => {
+   const reqDevice = req.query.device;
+    try {
+        await Device.findOne({device: reqDevice}, async (err, device) => {
+            if (device === null) {
+                res.send('error');
+            } else {
+                res.send({date: await device.get('buildDate'), download: await device.get('download')});
+            }
+        });
+    } catch (e) {
+        console.log(e);
+        res.send("Error!");
+    }
+});
+
 // Submit route
 router.post('/',
     [
