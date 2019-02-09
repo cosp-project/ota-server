@@ -9,6 +9,8 @@ services:
     environment:
       - TZ=${TZ}
       - DATABASE=mongodb://${DBUSER}:${DBPASS}@mongodb:27017/${DBNAME}
+    volumes:
+      - ./users.htpasswd:/usr/src/app/users.htpasswd:ro
     ports:
       - 6080:3000/tcp
     networks:
