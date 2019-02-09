@@ -6,6 +6,6 @@ build: Dockerfile
 	$(DOCKER) build -t $(IMAGE):$(TAG) .
 
 latest: Dockerfile
-	$(DOCKER) build -t $(IMAGE):latest .
+	$(DOCKER) build -t $(IMAGE):latest --build-arg KEY=${KEY} --build-arg SECRET=${SECRET} .
 
 .PHONY: build

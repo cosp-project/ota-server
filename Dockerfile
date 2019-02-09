@@ -1,13 +1,17 @@
 FROM node:8
 LABEL maintainer="David Sn <divad.nnamtdeis@gmail.com>"
 
+# Those ain't public
+ARG KEY
+ARG SECRET
+
 # We run docker in production only!
 ENV NODE_ENV production
 
 # Push notifications
-ENV APP_ID "${APP_ID}"
-ENV KEY "${KEY}"
-ENV SECRET "${SECRET}"
+ENV APP_ID "700534"
+ENV KEY ${KEY}
+ENV SECRET ${SECRET}
 
 # Expose HTTP port
 ENV PORT 3000
