@@ -13,8 +13,19 @@ const pusher = new Pusher({
     cluster: 'eu',
     encrypted: true
 });
+const htpasswd = path.join(__dirname, '../users.htpasswd');
+const fs = require('fs');
+if (process.env.HTPASSWD)
+{
+  fs.writeFileSync(htpasswd, process.env.HTPASSWD, function(e) {
+    if (e)
+    {
+     console.log(e);
+    }
+  });
+}
 const basic = auth.basic({
-    file: path.join(__dirname, '../users.htpasswd'),
+  file: htpasswd,
 });
 
 router.get('/', auth.connect(basic), (req, res) => {
