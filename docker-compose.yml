@@ -8,6 +8,9 @@ services:
       - cosp-mongodb
     environment:
       - TZ=${TZ}
+      - APP_ID=${APP_ID}
+      - KEY=${KEY}
+      - SECRET=${SECRET}
       - DATABASE=mongodb://${DBUSER}:${DBPASS}@mongodb:27017/${DBNAME}
     volumes:
       - ./users.htpasswd:/usr/src/app/users.htpasswd:ro

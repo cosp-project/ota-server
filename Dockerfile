@@ -8,11 +8,6 @@ ARG SECRET
 # We run docker in production only!
 ENV NODE_ENV production
 
-# Push notifications
-ENV APP_ID "700534"
-ENV KEY ${KEY}
-ENV SECRET ${SECRET}
-
 # Expose HTTP port
 ENV PORT 3000
 EXPOSE 3000/tcp
