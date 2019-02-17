@@ -1,11 +1,11 @@
 DOCKER = docker
 IMAGE = divadsn/cosp-otaserver
-TAG = $(shell git rev-parse --abbrev-ref HEAD)
+TAG = $(shell date +%Y%m%d)
 
-build: Dockerfile
-	$(DOCKER) build -t $(IMAGE):$(TAG) .
+release:
+	$(DOCKER) build -t $(IMAGE):$(TAG) -t $(IMAGE):latest .
 
-latest: Dockerfile
-	$(DOCKER) build -t $(IMAGE):latest --build-arg KEY=${KEY} --build-arg SECRET=${SECRET} .
+deploy:
+	$(DOCKER) push $(IMAGE):latest
 
-.PHONY: build
+.PHONY: release

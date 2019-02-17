@@ -1,10 +1,6 @@
 FROM node:8
 LABEL maintainer="David Sn <divad.nnamtdeis@gmail.com>"
 
-# Those ain't public
-ARG KEY
-ARG SECRET
-
 # We run docker in production only!
 ENV NODE_ENV production
 
