@@ -2,7 +2,7 @@ version: '2.1'
 services:
 
   cosp-ota:
-    image: cosp-project/ota-server:latest
+    image: divadsn/cosp-otaserver:latest
     restart: always
     depends_on:
       - cosp-mongodb

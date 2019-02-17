@@ -1,5 +1,5 @@
 DOCKER = docker
-IMAGE = cosp-project/ota-server
+IMAGE = divadsn/cosp-otaserver
 TAG = $(shell git rev-parse --abbrev-ref HEAD)
 
 build: Dockerfile
