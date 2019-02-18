@@ -27,24 +27,20 @@ router.get('/checkUpdate', async (req, res) => {
     try {
         await Device.findOne({device: reqDevice}, async (err, device) => {
             if (device === null) {
-                res.set('Access-Control-Allow-Origin', '*');
                 res.send('error');
             }
             else if ((Number(await device.get('buildDate')) > deviceBuild)) {
-                res.set('Access-Control-Allow-Origin', '*');
                 res.send({
                     update: true,
                     download: await device.get('download'),
                     changeLog: await device.get('changeLog')
                 });
             } else {
-                res.set('Access-Control-Allow-Origin', '*');
                 res.send({update: false, download: '', changeLog: await device.get('changeLog')});
             }
         });
     } catch (e) {
         console.log(e);
-        res.set('Access-Control-Allow-Origin', '*');
         res.send("Error!");
     }
 });
@@ -54,16 +50,13 @@ router.get('/latestDownload', async (req, res) => {
     try {
         await Device.findOne({device: reqDevice}, async (err, device) => {
             if (device === null) {
-                res.set('Access-Control-Allow-Origin', '*');
                 res.send('error');
             } else {
-                res.set('Access-Control-Allow-Origin', '*');
                 res.send({date: await device.get('buildDate'), download: await device.get('download')});
             }
         });
     } catch (e) {
         console.log(e);
-        res.set('Access-Control-Allow-Origin', '*');
         res.send("Error!");
     }
 });
@@ -97,7 +90,6 @@ router.post('/',
                         const device = new Device(req.body);
                         await device.save(err => {
                             if (err) console.log(err);
-                            res.set('Access-Control-Allow-Origin', '*');
                             res.send('Created device successfully.');
                         });
 
@@ -105,7 +97,6 @@ router.post('/',
                         await device.set(req.body);
                         await device.save((err) => {
                             if (err) console.log(err);
-                            res.set('Access-Control-Allow-Origin', '*');
                             res.send('Updated successfully.');
                             pusher.trigger('cosp-updates', 'updates-pushed', {
                                 "device": req.body.device
