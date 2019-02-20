@@ -2,14 +2,20 @@ version: '2.1'
 services:
 
   cosp-ota:
-    image: cosp-project/server:latest
+    image: divadsn/cosp-otaserver:latest
     restart: always
     depends_on:
       - cosp-mongodb
     environment:
       - TZ=${TZ}
+      - APP_ID=${APP_ID}
+      - KEY=${KEY}
+      - SECRET=${SECRET}
+      - DATABASE=mongodb://${DBUSER}:${DBPASS}@mongodb:27017/${DBNAME}
+    volumes:
+      - ./users.htpasswd:/usr/src/app/users.htpasswd:ro
     ports:
-      - 6080:80/tcp
+      - 6080:3000/tcp
     networks:
       cosp-network:
         aliases:
@@ -19,13 +25,13 @@ services:
     image: mongo:4.0
     restart: always
     environment:
-      - TZ=${TZ}
       - MONGO_INITDB_ROOT_USERNAME=${DBUSER}
       - MONGO_INITDB_ROOT_PASSWORD=${DBPASS}
+      - MONGO_INITDB_DATABASE=${DBNAME}
     volumes:
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
       - mongo-vol-1:/data/db
-    ports:
-      - 3306/tcp
+      - mongo-conf-1:/data/configdb
     networks:
       cosp-network:
         aliases:
@@ -35,4 +41,5 @@ networks:
   cosp-network:
 
 volumes:
-  mysql-vol-1:
+  mongo-vol-1:
+  mongo-conf-1:
