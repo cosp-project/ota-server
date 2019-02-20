@@ -5,6 +5,7 @@ define({ "api": [
     "title": "Check if update exists",
     "name": "GetCheckUpdate",
     "group": "Update",
+    "version": "0.1.1",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -78,7 +79,6 @@ define({ "api": [
         }
       ]
     },
-    "version": "0.0.0",
     "filename": "routes/index.js",
     "groupTitle": "Update"
   },
@@ -88,6 +88,7 @@ define({ "api": [
     "title": "Get the latest download link",
     "name": "GetLatestDownload",
     "group": "Update",
+    "version": "0.1.1",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -147,7 +148,6 @@ define({ "api": [
         }
       ]
     },
-    "version": "0.0.0",
     "filename": "routes/index.js",
     "groupTitle": "Update"
   }

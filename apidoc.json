@@ -1,0 +1,5 @@
+{
+  "name": "COSP OTA",
+  "version": "0.1.1",
+  "description": "Exposes APIs for getting updates, as well as a web interface for pushing updates."
+}
