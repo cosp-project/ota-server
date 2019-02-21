@@ -22,6 +22,10 @@ const deviceSchema = new mongoose.Schema({
 
     download: {
         type: String
+    },
+
+    channel: {
+        type: String
     }
 });
 

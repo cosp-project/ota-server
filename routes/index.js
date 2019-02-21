@@ -25,10 +25,11 @@ router.get('/', auth.connect(basic), (req, res) => {
  * @api {get} /checkUpdate Check if update exists
  * @apiName GetCheckUpdate
  * @apiGroup Update
- * @apiVersion 0.1.1
+ * @apiVersion 0.2.0
  *
  * @apiParam {String} device The user's device
  * @apiParam {Number} date The build date in the format "yymmdd"
+ * @apiParam {String} channel The update channel
  *
  * @apiSuccess {Boolean} update Whether an update is available
  * @apiSuccess {String} download Download URL
@@ -48,8 +49,9 @@ router.get('/', auth.connect(basic), (req, res) => {
 router.get('/checkUpdate', async (req, res) => {
     const reqDevice = req.query.device;
     const deviceBuild = Number(req.query.date);
+    const updateChannel = req.query.channel;
     try {
-        await Device.findOne({device: reqDevice}, async (err, device) => {
+        await Device.findOne({device: reqDevice, channel: updateChannel}, async (err, device) => {
             if (device === null) {
                 res.status(404).send({error: "DeviceNotFound"});
             }
@@ -73,9 +75,10 @@ router.get('/checkUpdate', async (req, res) => {
  * @api {get} /latestDownload Get the latest download link
  * @apiName GetLatestDownload
  * @apiGroup Update
- * @apiVersion 0.1.1
+ * @apiVersion 0.2.0
  *
  * @apiParam {String} device The user's device
+ * @apiParam {String} channel The update channel
  *
  * @apiSuccess {Number} date The latest build date
  * @apiSuccess {String} download Download URL
@@ -93,8 +96,9 @@ router.get('/checkUpdate', async (req, res) => {
  */
 router.get('/latestDownload', async (req, res) => {
    const reqDevice = req.query.device;
+   const updateChannel = req.query.channel;
     try {
-        await Device.findOne({device: reqDevice}, async (err, device) => {
+        await Device.findOne({device: reqDevice, channel: updateChannel}, async (err, device) => {
             if (device === null) {
                 res.status(404).send({error: "DeviceNotFound"});
             } else {
@@ -125,7 +129,10 @@ router.post('/',
             .withMessage('Please enter the changelog.'),
         body('download')
             .isURL({ require_valid_protocol: true })
-            .withMessage('Please enter a valid URL')
+            .withMessage('Please enter a valid URL'),
+        body('channel')
+            .isLength({ min:1 })
+            .withMessage('Please enter the build channel')
     ],
     async (req, res) => {
         const errors = validationResult(req);
