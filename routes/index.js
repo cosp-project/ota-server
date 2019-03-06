@@ -33,9 +33,10 @@ router.get('/', auth.connect(basic), (req, res) => {
  * @apiSuccess {Boolean} update Whether an update is available
  * @apiSuccess {String} download Download URL
  * @apiSuccess {String} changeLog Device update changelog
+ * @apiSuccess {String} maintainer The maintainer's name
  *
  * @apiSuccessExample {json} Success-Response:
- * {"update":true,"download":"https://download.example.com","changeLog":"Sample Changelog"}
+ * {"update":true,"download":"https://download.example.com","changeLog":"Sample Changelog", "maintainer": "sphericalkat"}
  *
  * @apiError DeviceNotFound The device was not found
  * @apiErrorExample {json} Error-Response:
@@ -57,10 +58,16 @@ router.get('/checkUpdate', async (req, res) => {
                 res.send({
                     update: true,
                     download: await device.get('download'),
-                    changeLog: await device.get('changeLog')
+                    changeLog: await device.get('changeLog'),
+                    maintainer: await device.get('maintainer')
                 });
             } else {
-                res.send({update: false, download: '', changeLog: await device.get('changeLog')});
+                res.send({
+                    update: false,
+                    download: '',
+                    changeLog: await device.get('changeLog'),
+                    maintainer: await device.get('maintainer')
+                });
             }
         });
     } catch (e) {

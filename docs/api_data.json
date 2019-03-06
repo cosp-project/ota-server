@@ -49,13 +49,20 @@
             "optional": false,
             "field": "changeLog",
             "description": "<p>Device update changelog</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "maintainer",
+            "description": "<p>The maintainer's name</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\"update\":true,\"download\":\"https://download.example.com\",\"changeLog\":\"Sample Changelog\"}",
+          "content": "{\"update\":true,\"download\":\"https://download.example.com\",\"changeLog\":\"Sample Changelog\", \"maintainer\": \"sphericalkat\"}",
           "type": "json"
         }
       ]
