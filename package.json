@@ -16,7 +16,7 @@
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
     "http-auth": "^3.2.3",
-    "mongoose": "^5.4.6",
+    "mongoose": "^5.7.5",
     "particles.js": "^2.0.0",
     "pug": "^2.0.3",
     "pusher": "^2.2.0"
